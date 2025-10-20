@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Página estática simple de ejemplo" />
+    <title>Página estática simple</title>
+    <style>
+        :root{
+            --bg:#f7f9fb;
+            --card:#fff;
+            --accent:#2563eb;
+            --muted:#6b7280;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color-scheme: light;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            background:var(--bg);
+            color:#0f172a;
+            line-height:1.5;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        .wrap{max-width:900px;margin:40px auto;padding:20px;}
+        header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+        .brand{display:flex;gap:12px;align-items:center}
+        .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+        nav a{margin-left:12px;color:var(--muted);text-decoration:none;font-size:0.95rem}
+        .hero{background:var(--card);padding:28px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+        h1{margin:0 0 8px;font-size:1.6rem}
+        p.lead{margin:0 0 18px;color:var(--muted)}
+        .grid{display:grid;grid-template-columns:1fr 220px;gap:16px;margin-top:12px}
+        .card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 4px 12px rgba(15,23,42,0.04)}
+        footer{margin-top:20px;color:var(--muted);font-size:0.9rem;text-align:center}
+        button.primary{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:8px;cursor:pointer}
+        @media (max-width:720px){
+            .grid{grid-template-columns:1fr}
+            nav a{display:none}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <div class="logo">HW</div>
+                <div>
+                    <div style="font-weight:700">Hola Mundo</div>
+                    <div style="font-size:0.85rem;color:var(--muted)">Página estática de ejemplo</div>
+                </div>
+            </div>
+            <nav aria-label="Menú principal">
+                <a href="#inicio">Inicio</a>
+                <a href="#caracteristicas">Características</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </header>
+
+        <section id="inicio" class="hero" role="region" aria-labelledby="titulo-hero">
+            <h1 id="titulo-hero">Bienvenido a tu página estática</h1>
+            <p class="lead">Este es un ejemplo mínimo de una página HTML estática. Listo para editar y desplegar.</p>
+
+            <div class="grid">
+                <div>
+                    <div class="card">
+                        <h2 style="margin-top:0;margin-bottom:8px">¿Qué incluye?</h2>
+                        <ul style="margin:0 0 8px 18px;color:var(--muted)">
+                            <li>Estructura HTML5 accesible</li>
+                            <li>Estilos simples con CSS</li>
+                            <li>Pequeña interacción con JavaScript</li>
+                        </ul>
+                        <button class="primary" id="greetBtn">Saludar</button>
+                        <div id="greetMsg" style="margin-top:10px;color:var(--muted)"></div>
+                    </div>
+
+                    <div class="card" style="margin-top:12px">
+                        <h3 style="margin:0 0 8px">Consejo</h3>
+                        <p style="margin:0;color:var(--muted)">Guarda este archivo como <code>simple.html</code> y ábrelo en tu navegador.</p>
+                    </div>
+                </div>
+
+                <aside class="card" aria-label="Panel lateral">
+                    <h4 style="margin-top:0">Información</h4>
+                    <p style="margin:0 0 8px;color:var(--muted)">Última actualización: <span id="year"></span></p>
+                    <p style="margin:0;color:var(--muted)">Licencia: MIT (ejemplo)</p>
+                </aside>
+            </div>
+        </section>
+
+        <footer id="contacto">
+            <p>Hecho con ❤️ · <a href="mailto:example@example.com">Contacto</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Interacciones mínimas
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('greetBtn').addEventListener('click', function(){
+            document.getElementById('greetMsg').textContent = '¡Hola! Esta página es estática y fácil de personalizar.';
+        });
+    </script>
+</body>
+</html>
